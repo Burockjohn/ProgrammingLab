@@ -27,7 +27,14 @@ public class Book {
             return "";
         }
 
-        return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+        String[] words = word.toLowerCase().split(" ");
+        String result = "";
+
+        for (String each : words) {
+            result += each.substring(0,1).toUpperCase() + each.substring(1).toLowerCase() + " ";
+        }
+
+        return result.trim();
 
     }
 
@@ -174,12 +181,12 @@ public class Book {
      */
 
     public String toString() {
-        return "Book{" +
+        return "Book[" +
                 "author=" + author +
                 ", title=" + title +
                 ", id=" + id +
                 ", pages=" + pages +
-                '}';
+                ']';
     }
 
     /**

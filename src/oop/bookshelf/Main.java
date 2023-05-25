@@ -65,7 +65,6 @@ class Main {
         String author = in.nextLine();
         String title = in.nextLine();
         int pages = in.nextInt();
-        in.nextLine();
         return new Book(id, author, title, pages);
     }
 
