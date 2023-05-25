@@ -163,14 +163,10 @@ public class Book {
             } else {
                 result += currentWord.toLowerCase();
             }
-
-            if(i < words.length-1) {
                 result += " ";
-            }
-
         }
 
-        this.title = result;
+        this.title = result.trim();
     }
 
     /**
