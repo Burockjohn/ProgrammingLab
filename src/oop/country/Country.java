@@ -13,15 +13,12 @@ public class Country {
     }
 
     public Country(String name, String continent, long population) {
-        this.name = name;
-        this.continent = continent;
+        this(name, continent);
         this.population = population;
     }
 
     public Country(String name, String continent, long population, boolean nearWater) {
-        this.name = name;
-        this.continent = continent;
-        this.population = population;
+        this(name, continent, population);
         this.nearWater = nearWater;
     }
 
