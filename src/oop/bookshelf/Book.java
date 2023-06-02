@@ -27,7 +27,7 @@ public class Book {
             return "";
         }
 
-        String[] words = word.toLowerCase().split(" ");
+        String[] words = word.split(" ");
         String result = "";
 
         for (String each : words) {

@@ -2,6 +2,7 @@ package oop.bookshelf;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Represents a book shelf.
@@ -49,7 +50,7 @@ public class Shelf {
     public static boolean isShelfEmpty() {
         // TODO
 
-        return (theBooks.size() == 0) ? true : false;
+        return theBooks.size() == 0;
     }
 
     /**
@@ -69,6 +70,7 @@ public class Shelf {
             }
         }
         return true;
+
     }
 
     /**
@@ -196,13 +198,19 @@ public class Shelf {
 
     public static List<Book> getAllBooksForAuthor(String author) {
         // TODO
-        List<Book> booksForAuthor = new ArrayList<>();
+        /*List<Book> booksForAuthor = new ArrayList<>();
         for (Book book : theBooks) {
             if (book.getAuthor().equalsIgnoreCase(author)) {
                 booksForAuthor.add(book);
             }
         }
         return booksForAuthor;
+
+         */
+
+        return theBooks.stream()
+                .filter(p -> p.getAuthor().equalsIgnoreCase(author))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -215,17 +223,7 @@ public class Shelf {
 
         // TODO
 
-        Book bookToRemove = null;
-
-        for (Book book : theBooks) {
-            if (book.getId() == id) {
-                bookToRemove = book;
-                break;
-            }
-        }
-        if (bookToRemove != null) {
-            theBooks.remove(bookToRemove);
-        }
+        theBooks.removeIf(p -> p.getId() == id);
     }
 
     /**
@@ -237,14 +235,7 @@ public class Shelf {
     public static void removeBook(String author) {
         // TODO
 
-        List<Book> booksToRemove = new ArrayList<>();
-
-        for (Book book : theBooks) {
-            if (book.getAuthor().equalsIgnoreCase(author)) {
-                booksToRemove.add(book);
-            }
-        }
-        theBooks.removeAll(booksToRemove);
+        theBooks.removeIf(p -> p.getAuthor().equalsIgnoreCase(author));
     }
 
     /**
